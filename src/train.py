@@ -36,6 +36,7 @@ def main():
     print("PCA transform for visualization...")
     X_pca, pca = pca_transform(X_scaled, n_components=2)
 
+    # Clustering
     print("Profiling clusters...")
     df_seg, profile = profile_clusters(df_clean, labels, features)
     df_seg["pc1"] = X_pca[:, 0]
@@ -67,6 +68,7 @@ def main():
     }
     save_model(bundle, path=MODEL_PATH)
 
+    
     print("Training complete.")
     print(f"Model saved to {MODEL_PATH}")
     print(f"Segmented CSV saved to {OUTPUT_CSV}")
